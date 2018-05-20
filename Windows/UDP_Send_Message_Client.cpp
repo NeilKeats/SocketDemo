@@ -1,6 +1,5 @@
 
 /*
-
 Socket客户端代码
 向服务器发送消息
 服务器IP：127.0.0.1
@@ -17,7 +16,6 @@ Socket客户端代码
 #pragma comment(lib,"ws2_32.lib")
 
 #define BUFFER_SIZE 2048
-#define FILE_NAME_MAX_SIZE 512 
 
 int main(int argc, char* argv[])
 {
@@ -32,7 +30,7 @@ int main(int argc, char* argv[])
 	}
 
 	/*
-	创建监听用套接字，server_socket
+	创建客户端套接字，client_socket
 	类型是UDP
 	并检测是否创建成功
 	*/
@@ -76,9 +74,10 @@ int main(int argc, char* argv[])
 	}
 
 
-	// 关闭socket 
+	// 关闭服务器socket 并注销 WSA
 	closesocket(client_socket);
 	WSACleanup();
+	system("pause");
 	return 0;
 
 }
