@@ -49,7 +49,7 @@ int main(int argc, char* argv[])
 	server_addr.sin_family = AF_INET;
 	//要连接的服务器端口号 8888
 	server_addr.sin_port = htons(8888);
-	//绑定服务器的地址127.0.0.1
+	//指定服务器的地址127.0.0.1
 	InetPton(AF_INET, "127.0.0.1",&server_addr.sin_addr.s_addr);
 	
 	//与地址server_addr建立连接
