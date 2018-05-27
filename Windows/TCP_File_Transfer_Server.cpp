@@ -51,7 +51,7 @@ int main(int argc, char* argv[])
 	server_addr.sin_family = AF_INET;
 	//端口号 8888
 	server_addr.sin_port = htons(8888);
-	//INADDR_ANY表示任意IP地址
+	//INADDR_ANY表示本机任意IP地址
 	server_addr.sin_addr.S_un.S_addr = INADDR_ANY;
 
 
@@ -86,12 +86,14 @@ int main(int argc, char* argv[])
 			perror("Socket连接建立失败:\n");
 			continue;
 		}
+		
 		char IP_BUFFER[256];
 		memset(IP_BUFFER, 0, 256);
 		InetNtop(AF_INET, &client_addr.sin_addr, IP_BUFFER,256);
 		printf("Socket连接建立，客户端IP为：%s，端口为：%d\n", IP_BUFFER, ntohs(client_addr.sin_port));
 
 
+		//接收客户端请求的的文件路径
 		// recv函数接收数据到缓冲区buffer中 
 		char buffer[BUFFER_SIZE];
 		memset(buffer,0, BUFFER_SIZE);

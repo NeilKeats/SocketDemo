@@ -103,11 +103,10 @@ int main(int argc, char* argv[])
 		memset(buffer, 0, BUFFER_SIZE);
 	}
 
-	// 接收成功后，关闭文件，关闭socket 
 	printf("\n成功从服务器接收文件\n存入本地目录：%s\n", REMOTE_file_name, LOCAL_file_name);
 
 
-	// 关闭监听用的socket 
+	// 接收成功后，关闭文件，关闭socket、WSA 
 	fclose(fp);
 	closesocket(client_socket);
 	WSACleanup();
