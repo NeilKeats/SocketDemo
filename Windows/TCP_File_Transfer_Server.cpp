@@ -111,7 +111,7 @@ int main(int argc, char* argv[])
 
 		// 打开文件并读取文件数据 
 		FILE *fp;
-		errno_t F_ERR= fopen_s(&fp,file_name, "r");
+		errno_t F_ERR= fopen_s(&fp,file_name, "rb");
 		if (F_ERR != 0)
 		{
 			printf("文件打开失败:%s\n", file_name);

@@ -82,7 +82,7 @@ int main(int argc, char* argv[])
 
 	// 打开文件，准备写入 
 	FILE *fp;
-	errno_t F_ERR = fopen_s(&fp, LOCAL_file_name, "w");
+	errno_t F_ERR = fopen_s(&fp, LOCAL_file_name, "wb");
 	if (F_ERR != 0)
 	{
 		printf("文件打开失败：%s\n", LOCAL_file_name);
